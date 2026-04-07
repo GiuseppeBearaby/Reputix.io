@@ -64,51 +64,111 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 bg-brand-light-blue text-brand-blue px-4 py-1.5 rounded-full text-sm font-semibold"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-blue"></span>
-            </span>
-            AI-Powered Reputation Management
-          </motion.div>
-          
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl md:text-6xl font-bold text-brand-navy leading-tight"
-          >
-            Your customers are talking.<br />
-            <span className="text-brand-blue">Are you listening?</span>
-          </motion.h1>
+      <section className="pt-32 pb-20 px-4 relative overflow-hidden">
+        {/* Subtle Background Pattern */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] pointer-events-none">
+          <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1"/>
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+          </svg>
+        </div>
 
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto"
-          >
-            Reputix responds to your Google Reviews automatically, flags problems before they go viral, and tells you exactly how to beat your competitors in Dubai.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-          >
-            <button 
-              onClick={() => navigate('/onboarding')}
-              className="bg-brand-blue text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-brand-blue/25 hover:bg-blue-600 transition-all transform hover:scale-105"
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative">
+          <div className="text-left space-y-8">
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="inline-flex items-center gap-2 bg-brand-light-blue text-brand-blue px-4 py-1.5 rounded-full text-sm font-semibold"
             >
-              Get Your Free Reputation Score →
-            </button>
-          </motion.div>
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-blue"></span>
+              </span>
+              AI-Powered Reputation Management
+            </motion.div>
+            
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-5xl md:text-7xl font-bold text-brand-navy leading-tight"
+            >
+              Your customers are talking.<br />
+              <span className="text-brand-blue">Are you listening?</span>
+            </motion.h1>
+
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-lg md:text-xl text-slate-600 max-w-xl"
+            >
+              Reputix responds to your Google Reviews automatically, flags problems before they go viral, and tells you exactly how to beat your competitors in Dubai.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <button 
+                onClick={() => navigate('/onboarding')}
+                className="bg-brand-blue text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-brand-blue/25 hover:bg-blue-600 transition-all transform hover:scale-105"
+              >
+                Get Your Free Score →
+              </button>
+              <button 
+                className="bg-white text-brand-navy border border-slate-200 px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-50 transition-all"
+              >
+                Watch Demo
+              </button>
+            </motion.div>
+          </div>
+
+          {/* Floating AI Card Visual */}
+          <div className="hidden lg:block relative">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+              animate={{ opacity: 1, scale: 1, rotate: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="relative z-10 bg-white p-6 rounded-3xl shadow-2xl border border-slate-100 max-w-md ml-auto"
+            >
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-xl">👤</div>
+                <div>
+                  <div className="font-bold text-brand-navy">Ahmed S.</div>
+                  <div className="flex text-brand-yellow text-sm">★★★★★</div>
+                </div>
+                <div className="ml-auto text-xs text-slate-400">2 mins ago</div>
+              </div>
+              <p className="text-slate-600 mb-6 italic">"Amazing service at the Jumeirah branch! The staff was very helpful and the atmosphere was perfect."</p>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1 }}
+                className="bg-brand-light-blue/50 p-4 rounded-2xl border border-brand-blue/20"
+              >
+                <div className="flex items-center gap-2 mb-2 text-brand-blue font-bold text-sm">
+                  <Bot size={16} /> Reputix AI Draft
+                </div>
+                <p className="text-sm text-slate-700 leading-relaxed">"Thank you so much Ahmed! We're thrilled you enjoyed the atmosphere at our Jumeirah branch. We'll share your kind words with the team!"</p>
+                <div className="mt-3 flex gap-2">
+                  <button className="bg-brand-blue text-white text-xs px-3 py-1.5 rounded-lg font-bold">Approve & Post</button>
+                  <button className="bg-white text-slate-500 text-xs px-3 py-1.5 rounded-lg border border-slate-200 font-bold">Edit</button>
+                </div>
+              </motion.div>
+            </motion.div>
+
+            {/* Decorative Elements */}
+            <div className="absolute -top-10 -right-10 w-64 h-64 bg-brand-blue/10 rounded-full blur-3xl -z-10"></div>
+            <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-brand-green/10 rounded-full blur-3xl -z-10"></div>
+          </div>
         </div>
       </section>
 
