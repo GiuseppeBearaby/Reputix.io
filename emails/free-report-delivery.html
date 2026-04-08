@@ -1,46 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-  body { font-family: 'Inter', sans-serif; color: #0f172a; line-height: 1.6; margin: 0; padding: 0; }
-  .container { max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; }
-  .header { background-color: #0f172a; color: white; padding: 32px; text-align: center; }
-  .content { padding: 32px; }
-  .metric { margin-bottom: 15px; }
-  .metric-label { font-weight: bold; }
-  .metric-val { color: #007AFF; font-weight: bold; }
-  .button { display: inline-block; background-color: #007AFF; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; }
-  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 12px; }
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Your Reputation Report</title>
 </head>
-<body>
-  <div class="container">
-    <div class="header">
-      <h1 style="margin:0">Your Free Reputation Report is Ready</h1>
+<body style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;background:#f1f5f9;margin:0;padding:0;color:#0f172a;">
+<div style="max-width:600px;margin:0 auto;padding:40px 16px;">
+
+  <!-- Header -->
+  <div style="background:linear-gradient(135deg,#0f172a,#1e293b);border-radius:16px 16px 0 0;padding:40px 32px;text-align:center;">
+    <div style="display:inline-block;background:#007AFF;width:48px;height:48px;border-radius:12px;line-height:48px;font-size:24px;font-weight:bold;color:#fff;margin-bottom:16px;">R</div>
+    <h1 style="color:#fff;margin:0 0 8px;font-size:22px;font-weight:700;">Your Reputation Report is Ready</h1>
+    <p style="color:#94a3b8;margin:0;font-size:13px;">Comprehensive Analysis · {{BUSINESS_NAME}}</p>
+  </div>
+
+  <!-- Body -->
+  <div style="background:#fff;padding:32px;border-radius:0 0 16px 16px;box-shadow:0 4px 6px -1px rgba(0,0,0,.07);">
+    <p style="font-size:15px;color:#475569;margin:0 0 16px;">We scanned the internet for <strong style="color:#0f172a;">{{BUSINESS_NAME}}</strong>. Here's what we found:</p>
+
+    <!-- Score box -->
+    <div style="background:linear-gradient(135deg,#007AFF,#0055cc);border-radius:12px;padding:28px;text-align:center;margin:0 0 24px;">
+      <p style="color:rgba(255,255,255,.7);margin:0 0 2px;font-size:11px;text-transform:uppercase;letter-spacing:1.5px;">Reputation Score</p>
+      <p style="color:#fff;margin:0;font-size:54px;font-weight:800;line-height:1;">{{SCORE}}</p>
+      <p style="color:rgba(255,255,255,.5);margin:2px 0 0;font-size:13px;">out of 100</p>
     </div>
-    <div class="content">
-      <p>Hi there,</p>
-      <p>We've finished analyzing 342 Google Reviews for <strong>Al Safa Cafe</strong>. Here's a quick summary of what we found:</p>
-      
-      <div style="margin: 24px 0;">
-        <div class="metric"><span class="metric-label">Reputation Score:</span> <span class="metric-val">78/100</span></div>
-        <div class="metric"><span class="metric-label">Average Rating:</span> <span class="metric-val">4.6★</span></div>
-        <div class="metric"><span class="metric-label">Response Rate:</span> <span class="metric-val">67%</span></div>
-      </div>
 
-      <p><strong>Top complaint:</strong> 'slow service during Friday brunch' — mentioned in 15% of negative reviews.</p>
-
-      <div style="text-align: center; margin-top: 32px;">
-        <a href="#" class="button">View Full Report</a>
-      </div>
-
-      <p style="text-align: center; margin-top: 20px; font-size: 14px;">
-        Want to fix these automatically? <a href="#" style="color: #007AFF;">Start your free trial →</a>
-      </p>
+    <!-- Summary -->
+    <div style="background:#f8fafc;border-radius:10px;padding:16px 20px;margin:0 0 28px;">
+      <p style="font-size:14px;color:#475569;margin:0;line-height:1.6;">{{SUMMARY}}</p>
     </div>
-    <div class="footer">
-      Reputix AI · Made in Dubai 🇦🇪
+
+    <h3 style="font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:#10B981;margin:0 0 10px;">✅ Strengths</h3>
+    {{STRENGTHS}}
+
+    <h3 style="font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:#EF4444;margin:24px 0 10px;">⚠️ Areas to Improve</h3>
+    {{WEAKNESSES}}
+
+    <h3 style="font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:#007AFF;margin:24px 0 10px;">💡 Recommendations</h3>
+    {{RECOMMENDATIONS}}
+
+    <div style="border-top:1px solid #e2e8f0;margin:32px 0;"></div>
+
+    <div style="text-align:center;">
+      <h3 style="font-size:18px;color:#0f172a;margin:0 0 6px;">Want to fix these automatically?</h3>
+      <p style="font-size:13px;color:#64748b;margin:0 0 20px;">Reputix monitors reviews, press &amp; social 24/7 and responds for you.</p>
+      <a href="https://reputix.io/onboarding" style="display:inline-block;background:#007AFF;color:#fff;padding:14px 36px;border-radius:10px;text-decoration:none;font-weight:700;font-size:15px;box-shadow:0 4px 14px rgba(0,122,255,.25);">Start Free Trial — 30 Days</a>
+      <p style="font-size:11px;color:#94a3b8;margin:10px 0 0;">No credit card required</p>
     </div>
   </div>
+
+  <!-- Footer -->
+  <div style="text-align:center;padding:20px 0;">
+    <p style="font-size:11px;color:#94a3b8;margin:0;">Reputix · AI-Powered Reputation Management · Made in Dubai 🇦🇪</p>
+  </div>
+
+</div>
 </body>
 </html>

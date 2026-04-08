@@ -1,62 +1,71 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-  body { font-family: 'Inter', sans-serif; color: #0f172a; line-height: 1.6; margin: 0; padding: 0; }
-  .container { max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; }
-  .header { background-color: #007AFF; color: white; padding: 32px; text-align: center; }
-  .content { padding: 32px; }
-  .stats-grid { display: table; width: 100%; border-collapse: separate; border-spacing: 10px; }
-  .stat-box { display: table-cell; background: #f8fafc; padding: 15px; border-radius: 12px; text-align: center; width: 33%; }
-  .stat-val { display: block; font-size: 20px; font-weight: bold; color: #0f172a; }
-  .stat-label { font-size: 10px; color: #64748b; text-transform: uppercase; font-weight: bold; }
-  .insight-box { background-color: #E6F2FF; border-radius: 12px; padding: 20px; margin: 20px 0; }
-  .button { display: inline-block; background-color: #007AFF; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; }
-  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 12px; }
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Your Weekly Digest</title>
 </head>
-<body>
-  <div class="container">
-    <div class="header">
-      <h1 style="margin:0">Your Weekly Reputation Digest</h1>
+<body style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;background:#f1f5f9;margin:0;padding:0;color:#0f172a;">
+<div style="max-width:600px;margin:0 auto;padding:40px 16px;">
+
+  <div style="background:linear-gradient(135deg,#0055cc,#007AFF);border-radius:16px 16px 0 0;padding:36px 32px;text-align:center;">
+    <div style="display:inline-block;background:#fff;width:48px;height:48px;border-radius:12px;line-height:48px;font-size:24px;font-weight:bold;color:#007AFF;margin-bottom:16px;">R</div>
+    <h1 style="color:#fff;margin:0 0 6px;font-size:22px;font-weight:700;">Your Weekly Digest</h1>
+    <p style="color:rgba(255,255,255,.85);margin:0;font-size:13px;">{{BUSINESS_NAME}} · {{WEEK_RANGE}}</p>
+  </div>
+
+  <div style="background:#fff;padding:32px;border-radius:0 0 16px 16px;box-shadow:0 4px 6px -1px rgba(0,0,0,.07);">
+    <p style="font-size:15px;color:#475569;margin:0 0 24px;">Here's how your reputation performed this week.</p>
+
+    <!-- 3 metric cards -->
+    <table cellpadding="0" cellspacing="0" style="width:100%;margin:0 0 28px;"><tr>
+      <td style="padding:0 6px 0 0;width:33%;vertical-align:top;">
+        <div style="background:#f8fafc;border-radius:10px;padding:18px 12px;text-align:center;">
+          <p style="margin:0;font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;">New Reviews</p>
+          <p style="margin:6px 0 0;font-size:28px;font-weight:800;color:#0f172a;">{{NEW_REVIEWS}}</p>
+        </div>
+      </td>
+      <td style="padding:0 3px;width:33%;vertical-align:top;">
+        <div style="background:#f8fafc;border-radius:10px;padding:18px 12px;text-align:center;">
+          <p style="margin:0;font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;">Avg Rating</p>
+          <p style="margin:6px 0 0;font-size:28px;font-weight:800;color:#10B981;">{{AVG_RATING}}★</p>
+        </div>
+      </td>
+      <td style="padding:0 0 0 6px;width:33%;vertical-align:top;">
+        <div style="background:#f8fafc;border-radius:10px;padding:18px 12px;text-align:center;">
+          <p style="margin:0;font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;">Response Rate</p>
+          <p style="margin:6px 0 0;font-size:28px;font-weight:800;color:#007AFF;">{{RESPONSE_RATE}}%</p>
+        </div>
+      </td>
+    </tr></table>
+
+    <h3 style="font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:#F59E0B;margin:0 0 10px;">📰 Press &amp; News</h3>
+    <div style="background:#FFFBEB;border-left:4px solid #F59E0B;padding:14px 18px;border-radius:0 8px 8px 0;margin:0 0 20px;">
+      <p style="font-size:13px;color:#78350F;margin:0;line-height:1.6;">{{PRESS_SUMMARY}}</p>
     </div>
-    <div class="content">
-      <p>Hi Tariq,</p>
-      <p>Here's how <strong>Al Safa Cafe</strong> performed this week (Mar 18-24).</p>
-      
-      <div class="stats-grid">
-        <div class="stat-box">
-          <span class="stat-val">12</span>
-          <span class="stat-label">New Reviews</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-val">4.6 ★</span>
-          <span class="stat-label">Avg Rating (↑0.1)</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-val">92%</span>
-          <span class="stat-label">Response Rate</span>
-        </div>
-      </div>
 
-      <div class="insight-box">
-        <p style="font-weight: bold; color: #007AFF; margin-top: 0;">Key Insight</p>
-        <p style="margin-bottom: 0;">Your most mentioned positive theme this week: <strong>'friendly staff'</strong> (8 times). This is driving your rating up!</p>
-      </div>
-
-      <p style="color: #EF4444; font-weight: bold;">⚠️ 2 negative reviews need your attention.</p>
-
-      <div style="text-align: center; margin-top: 32px;">
-        <a href="#" class="button">View Full Dashboard</a>
-      </div>
-
-      <p style="margin-top: 32px; font-size: 14px; text-align: center; color: #64748b;">
-        Know a business owner who needs this? Share your referral link for a free month.
-      </p>
+    <h3 style="font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:#8B5CF6;margin:0 0 10px;">💬 Social Mentions</h3>
+    <div style="background:#F5F3FF;border-left:4px solid #8B5CF6;padding:14px 18px;border-radius:0 8px 8px 0;margin:0 0 20px;">
+      <p style="font-size:13px;color:#4C1D95;margin:0;line-height:1.6;">{{SOCIAL_SUMMARY}}</p>
     </div>
-    <div class="footer">
-      Reputix AI · Made in Dubai 🇦🇪
+
+    <h3 style="font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:#007AFF;margin:0 0 10px;">💡 Key Insight</h3>
+    <div style="background:#E6F2FF;border-radius:10px;padding:18px 22px;margin:0 0 28px;">
+      <p style="font-size:14px;color:#1E3A8A;margin:0;line-height:1.6;font-weight:500;">{{KEY_INSIGHT}}</p>
+    </div>
+
+    <div style="text-align:center;">
+      <a href="https://reputix.io/dashboard" style="display:inline-block;background:#007AFF;color:#fff;padding:14px 36px;border-radius:10px;text-decoration:none;font-weight:700;font-size:15px;box-shadow:0 4px 14px rgba(0,122,255,.25);">View Full Dashboard</a>
+    </div>
+
+    <div style="border-top:1px solid #e2e8f0;margin:28px 0 0;padding-top:18px;text-align:center;">
+      <p style="font-size:12px;color:#64748b;margin:0;">🎁 Love Reputix? <a href="https://reputix.io/referral" style="color:#007AFF;text-decoration:none;font-weight:600;">Invite a friend</a> and get a free month.</p>
     </div>
   </div>
+
+  <div style="text-align:center;padding:20px 0;">
+    <p style="font-size:11px;color:#94a3b8;margin:0;">Reputix · AI-Powered Reputation Management · Made in Dubai 🇦🇪</p>
+  </div>
+</div>
 </body>
 </html>

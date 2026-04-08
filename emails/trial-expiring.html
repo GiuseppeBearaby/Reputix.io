@@ -1,43 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-  body { font-family: 'Inter', sans-serif; color: #0f172a; line-height: 1.6; margin: 0; padding: 0; }
-  .container { max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; }
-  .header { background-color: #F59E0B; color: white; padding: 32px; text-align: center; }
-  .content { padding: 32px; }
-  .button { display: inline-block; background-color: #007AFF; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; }
-  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 12px; }
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Your Trial Ends Soon</title>
 </head>
-<body>
-  <div class="container">
-    <div class="header">
-      <h1 style="margin:0">Your Trial Ends in 3 Days</h1>
-    </div>
-    <div class="content">
-      <p>Hi Tariq,</p>
-      <p>Your Reputix trial for <strong>Al Safa Cafe</strong> ends on April 15, 2026. Here's what we've done for you in the last 27 days:</p>
-      
-      <ul style="margin: 24px 0; padding-left: 20px;">
-        <li><strong>47 reviews</strong> auto-responded</li>
-        <li><strong>8 negative reviews</strong> handled with AI drafts</li>
-        <li><strong>Rating improved</strong> from 4.4 to 4.6 stars</li>
-      </ul>
+<body style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;background:#f1f5f9;margin:0;padding:0;color:#0f172a;">
+<div style="max-width:600px;margin:0 auto;padding:40px 16px;">
 
-      <p>If you cancel, reviews stop getting responses and your competitors will pull ahead in the local search results.</p>
-
-      <div style="text-align: center; margin-top: 32px;">
-        <a href="#" class="button">Upgrade Now — Starting at AED 199/mo</a>
-      </div>
-
-      <p style="text-align: center; margin-top: 20px; font-size: 14px; color: #64748b;">
-        Not ready? Reply to this email and tell us why.
-      </p>
-    </div>
-    <div class="footer">
-      Reputix AI · Made in Dubai 🇦🇪
-    </div>
+  <div style="background:linear-gradient(135deg,#B45309,#F59E0B);border-radius:16px 16px 0 0;padding:36px 32px;text-align:center;">
+    <div style="display:inline-block;background:#fff;width:48px;height:48px;border-radius:12px;line-height:48px;font-size:24px;font-weight:bold;color:#F59E0B;margin-bottom:16px;">R</div>
+    <h1 style="color:#fff;margin:0 0 6px;font-size:22px;font-weight:700;">⏰ Your Trial Ends in {{DAYS_LEFT}} Days</h1>
+    <p style="color:rgba(255,255,255,.85);margin:0;font-size:13px;">{{BUSINESS_NAME}} · expires {{EXPIRY_DATE}}</p>
   </div>
+
+  <div style="background:#fff;padding:32px;border-radius:0 0 16px 16px;box-shadow:0 4px 6px -1px rgba(0,0,0,.07);">
+    <p style="font-size:15px;color:#475569;margin:0 0 20px;">Hi {{OWNER_NAME}}, here's what Reputix accomplished for <strong style="color:#0f172a;">{{BUSINESS_NAME}}</strong> during your trial:</p>
+
+    <table cellpadding="0" cellspacing="0" style="width:100%;margin:0 0 24px;"><tr>
+      <td style="padding:0 6px 0 0;width:33%;vertical-align:top;">
+        <div style="background:#f8fafc;border-radius:10px;padding:18px 12px;text-align:center;">
+          <p style="margin:0;font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;">Auto-replies</p>
+          <p style="margin:6px 0 0;font-size:28px;font-weight:800;color:#0f172a;">{{REVIEWS_HANDLED}}</p>
+        </div>
+      </td>
+      <td style="padding:0 3px;width:33%;vertical-align:top;">
+        <div style="background:#f8fafc;border-radius:10px;padding:18px 12px;text-align:center;">
+          <p style="margin:0;font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;">Crises Handled</p>
+          <p style="margin:6px 0 0;font-size:28px;font-weight:800;color:#EF4444;">{{NEGATIVES_HANDLED}}</p>
+        </div>
+      </td>
+      <td style="padding:0 0 0 6px;width:33%;vertical-align:top;">
+        <div style="background:#f8fafc;border-radius:10px;padding:18px 12px;text-align:center;">
+          <p style="margin:0;font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;">Rating</p>
+          <p style="margin:6px 0 0;font-size:28px;font-weight:800;color:#10B981;">{{NEW_RATING}}★</p>
+        </div>
+      </td>
+    </tr></table>
+
+    <div style="background:#FEF3C7;border-left:4px solid #F59E0B;padding:14px 18px;border-radius:0 8px 8px 0;margin:0 0 28px;">
+      <p style="font-size:13px;color:#78350F;margin:0;line-height:1.6;">⚠️ <strong>Without Reputix:</strong> reviews stop getting responses, your local ranking drops, and competitors pull ahead within 2 weeks.</p>
+    </div>
+
+    <div style="text-align:center;">
+      <a href="https://reputix.io/upgrade" style="display:inline-block;background:#007AFF;color:#fff;padding:14px 36px;border-radius:10px;text-decoration:none;font-weight:700;font-size:15px;box-shadow:0 4px 14px rgba(0,122,255,.25);">Upgrade Now — From AED 199/mo</a>
+      <p style="font-size:11px;color:#94a3b8;margin:12px 0 0;">Cancel anytime · No setup fees</p>
+    </div>
+
+    <p style="text-align:center;margin:20px 0 0;font-size:13px;color:#64748b;">Not ready? <a href="mailto:hello@reputix.io" style="color:#007AFF;text-decoration:none;">Reply and tell us why</a> — we'll listen.</p>
+  </div>
+
+  <div style="text-align:center;padding:20px 0;">
+    <p style="font-size:11px;color:#94a3b8;margin:0;">Reputix · AI-Powered Reputation Management · Made in Dubai 🇦🇪</p>
+  </div>
+</div>
 </body>
 </html>

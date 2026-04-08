@@ -1,46 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-  body { font-family: 'Inter', sans-serif; color: #0f172a; line-height: 1.6; margin: 0; padding: 0; }
-  .container { max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; }
-  .header { background-color: #EF4444; color: white; padding: 32px; text-align: center; }
-  .content { padding: 32px; }
-  .review-box { border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; margin: 20px 0; }
-  .stars { color: #F59E0B; font-size: 20px; }
-  .ai-box { background-color: #E6F2FF; border: 1px solid #007AFF; border-radius: 12px; padding: 20px; margin: 20px 0; }
-  .button { display: inline-block; background-color: #007AFF; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; }
-  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 12px; }
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>New Negative Review Alert</title>
 </head>
-<body>
-  <div class="container">
-    <div class="header">
-      <h1 style="margin:0">Action Required: New Negative Review</h1>
-    </div>
-    <div class="content">
-      <p>Hi Tariq,</p>
-      <p>A new negative review was just posted for <strong>Al Safa Cafe</strong>. Quick action can prevent this from affecting your ranking.</p>
-      
-      <div class="review-box">
-        <div class="stars">★☆☆☆☆</div>
-        <p style="font-weight:bold; margin: 10px 0;">"Disappointing service"</p>
-        <p style="font-style:italic; color: #64748b;">"Waited 30 minutes for a simple latte. Staff seemed overwhelmed and ignored me."</p>
-        <p style="font-size: 12px; color: #94a3b8;">— Fatima Al-Zahra, 2 hours ago</p>
-      </div>
+<body style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;background:#f1f5f9;margin:0;padding:0;color:#0f172a;">
+<div style="max-width:600px;margin:0 auto;padding:40px 16px;">
 
-      <div class="ai-box">
-        <p style="font-size: 10px; font-weight: bold; color: #007AFF; text-transform: uppercase; margin-top: 0;">AI Suggested Response</p>
-        <p style="margin-bottom: 0;">"Dear Fatima, please accept our sincerest apologies for the unacceptable wait time. This is not the standard we strive for. Our manager would like to speak with you directly to resolve this."</p>
-      </div>
+  <div style="background:linear-gradient(135deg,#7f1d1d,#EF4444);border-radius:16px 16px 0 0;padding:36px 32px;text-align:center;">
+    <div style="display:inline-block;background:#fff;width:48px;height:48px;border-radius:12px;line-height:48px;font-size:24px;font-weight:bold;color:#EF4444;margin-bottom:16px;">R</div>
+    <h1 style="color:#fff;margin:0 0 6px;font-size:22px;font-weight:700;">⚠️ New Negative Review</h1>
+    <p style="color:rgba(255,255,255,.85);margin:0;font-size:13px;">{{BUSINESS_NAME}} · needs your attention</p>
+  </div>
 
-      <div style="text-align: center; margin-top: 32px;">
-        <a href="#" class="button">Approve & Post Response</a>
-      </div>
+  <div style="background:#fff;padding:32px;border-radius:0 0 16px 16px;box-shadow:0 4px 6px -1px rgba(0,0,0,.07);">
+    <p style="font-size:15px;color:#475569;margin:0 0 20px;">Hi {{OWNER_NAME}}, a new {{RATING}}-star review was posted on Google. Reputix has already drafted a response — review and approve in seconds.</p>
+
+    <blockquote style="border-left:4px solid #EF4444;background:#FEE2E2;padding:16px 20px;border-radius:0 8px 8px 0;margin:0 0 24px;">
+      <p style="font-size:13px;color:#7f1d1d;margin:0 0 8px;font-weight:600;">{{AUTHOR_NAME}} · ⭐ {{RATING}}/5</p>
+      <p style="font-size:14px;color:#451a1a;margin:0;line-height:1.6;font-style:italic;">"{{REVIEW_TEXT}}"</p>
+    </blockquote>
+
+    <h3 style="font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:#007AFF;margin:0 0 10px;">🤖 AI Suggested Response</h3>
+    <div style="background:#E6F2FF;border-left:4px solid #007AFF;padding:16px 20px;border-radius:0 8px 8px 0;margin:0 0 24px;">
+      <p style="font-size:14px;color:#1E3A8A;margin:0;line-height:1.6;">{{AI_RESPONSE}}</p>
     </div>
-    <div class="footer">
-      Reputix AI · Made in Dubai 🇦🇪
+
+    <h3 style="font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:#64748b;margin:0 0 10px;">Resolution Options</h3>
+    <table cellpadding="0" cellspacing="0" style="width:100%;margin:0 0 28px;"><tr>
+      <td style="padding:8px 4px 8px 0;width:33%;"><div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px;text-align:center;font-size:12px;color:#475569;">Acknowledge</div></td>
+      <td style="padding:8px 4px;width:33%;"><div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px;text-align:center;font-size:12px;color:#475569;">Recovery Visit</div></td>
+      <td style="padding:8px 0 8px 4px;width:33%;"><div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px;text-align:center;font-size:12px;color:#475569;">Take Offline</div></td>
+    </tr></table>
+
+    <div style="text-align:center;">
+      <a href="https://reputix.io/dashboard/reviews/{{REVIEW_ID}}" style="display:inline-block;background:#EF4444;color:#fff;padding:14px 36px;border-radius:10px;text-decoration:none;font-weight:700;font-size:15px;box-shadow:0 4px 14px rgba(239,68,68,.25);">Review &amp; Approve</a>
+      <p style="font-size:11px;color:#94a3b8;margin:12px 0 0;">⏱️ Quick responses keep customers from churning</p>
     </div>
   </div>
+
+  <div style="text-align:center;padding:20px 0;">
+    <p style="font-size:11px;color:#94a3b8;margin:0;">Reputix · AI-Powered Reputation Management · Made in Dubai 🇦🇪</p>
+  </div>
+</div>
 </body>
 </html>

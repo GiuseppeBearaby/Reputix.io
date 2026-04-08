@@ -1,39 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-  body { font-family: 'Inter', sans-serif; color: #0f172a; line-height: 1.6; margin: 0; padding: 0; }
-  .container { max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; }
-  .header { background-color: #0f172a; color: white; padding: 32px; text-align: center; }
-  .content { padding: 32px; }
-  .button { display: inline-block; background-color: #007AFF; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: bold; }
-  .footer { text-align: center; padding: 20px; color: #94a3b8; font-size: 12px; }
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>We Miss You</title>
 </head>
-<body>
-  <div class="container">
-    <div class="header">
-      <h1 style="margin:0">We miss you (and so do your reviewers)</h1>
-    </div>
-    <div class="content">
-      <p>Hi Tariq,</p>
-      <p>It's been 7 days since you paused your Reputix account for <strong>Al Safa Cafe</strong>. Since then, your business has received:</p>
-      
-      <ul style="margin: 24px 0; padding-left: 20px;">
-        <li>6 new reviews</li>
-        <li>4 unanswered reviews</li>
-        <li>1 new 1-star review</li>
-      </ul>
+<body style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;background:#f1f5f9;margin:0;padding:0;color:#0f172a;">
+<div style="max-width:600px;margin:0 auto;padding:40px 16px;">
 
-      <p>Your response rate has dropped from <strong>92% to 34%</strong>. Your competitors are still responding to their customers every day.</p>
+  <div style="background:linear-gradient(135deg,#0f172a,#1e293b);border-radius:16px 16px 0 0;padding:36px 32px;text-align:center;">
+    <div style="display:inline-block;background:#007AFF;width:48px;height:48px;border-radius:12px;line-height:48px;font-size:24px;font-weight:bold;color:#fff;margin-bottom:16px;">R</div>
+    <h1 style="color:#fff;margin:0 0 6px;font-size:22px;font-weight:700;">We Miss You 👋</h1>
+    <p style="color:#94a3b8;margin:0;font-size:13px;">{{BUSINESS_NAME}} · 7 days since you paused</p>
+  </div>
 
-      <div style="text-align: center; margin-top: 32px;">
-        <a href="#" class="button">Reactivate My Account</a>
-      </div>
+  <div style="background:#fff;padding:32px;border-radius:0 0 16px 16px;box-shadow:0 4px 6px -1px rgba(0,0,0,.07);">
+    <p style="font-size:15px;color:#475569;margin:0 0 20px;">Hi {{OWNER_NAME}}, here's what happened to <strong style="color:#0f172a;">{{BUSINESS_NAME}}</strong> in the last 7 days without Reputix:</p>
+
+    <table cellpadding="0" cellspacing="0" style="width:100%;margin:0 0 24px;"><tr>
+      <td style="padding:0 6px 0 0;width:33%;vertical-align:top;">
+        <div style="background:#f8fafc;border-radius:10px;padding:18px 12px;text-align:center;">
+          <p style="margin:0;font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;">New Reviews</p>
+          <p style="margin:6px 0 0;font-size:28px;font-weight:800;color:#0f172a;">{{NEW_REVIEWS}}</p>
+        </div>
+      </td>
+      <td style="padding:0 3px;width:33%;vertical-align:top;">
+        <div style="background:#f8fafc;border-radius:10px;padding:18px 12px;text-align:center;">
+          <p style="margin:0;font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;">Unanswered</p>
+          <p style="margin:6px 0 0;font-size:28px;font-weight:800;color:#F59E0B;">{{UNANSWERED}}</p>
+        </div>
+      </td>
+      <td style="padding:0 0 0 6px;width:33%;vertical-align:top;">
+        <div style="background:#f8fafc;border-radius:10px;padding:18px 12px;text-align:center;">
+          <p style="margin:0;font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;">1-Star</p>
+          <p style="margin:6px 0 0;font-size:28px;font-weight:800;color:#EF4444;">{{NEGATIVE_COUNT}}</p>
+        </div>
+      </td>
+    </tr></table>
+
+    <div style="background:#FEE2E2;border-left:4px solid #EF4444;padding:14px 18px;border-radius:0 8px 8px 0;margin:0 0 28px;">
+      <p style="font-size:13px;color:#7f1d1d;margin:0;line-height:1.6;">📉 Your response rate dropped from <strong>{{OLD_RATE}}%</strong> to <strong>{{NEW_RATE}}%</strong>. Competitors are still replying every day.</p>
     </div>
-    <div class="footer">
-      Reputix AI · Made in Dubai 🇦🇪
+
+    <div style="background:#E6F2FF;border-radius:10px;padding:18px 22px;margin:0 0 28px;text-align:center;">
+      <p style="font-size:14px;color:#1E3A8A;margin:0 0 4px;font-weight:600;">🎁 Come back this week</p>
+      <p style="font-size:13px;color:#1E3A8A;margin:0;">Get <strong>50% off</strong> your next month with code <strong>WELCOME50</strong></p>
+    </div>
+
+    <div style="text-align:center;">
+      <a href="https://reputix.io/reactivate" style="display:inline-block;background:#007AFF;color:#fff;padding:14px 36px;border-radius:10px;text-decoration:none;font-weight:700;font-size:15px;box-shadow:0 4px 14px rgba(0,122,255,.25);">Reactivate My Account</a>
     </div>
   </div>
+
+  <div style="text-align:center;padding:20px 0;">
+    <p style="font-size:11px;color:#94a3b8;margin:0;">Reputix · AI-Powered Reputation Management · Made in Dubai 🇦🇪</p>
+  </div>
+</div>
 </body>
 </html>

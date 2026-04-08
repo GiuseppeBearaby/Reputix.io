@@ -1,0 +1,38 @@
+export const POSTS = [
+  {
+    slug: "how-to-respond-to-negative-google-reviews",
+    tag: "Guide",
+    tagColor: "bg-green-100 text-green-700",
+    title: "How to Respond to Negative Google Reviews: A Dubai Business Owner's Guide",
+    excerpt: "Learn the proven framework for turning 1-star reviews into loyal customers.",
+    date: "March 2026",
+    read: "8 min read",
+  },
+  {
+    slug: "dubai-restaurant-reputation-report-2026",
+    tag: "Data",
+    tagColor: "bg-blue-100 text-blue-700",
+    title: "Dubai Restaurant Reputation Report 2026: Key Trends",
+    excerpt: "We analyzed 50,000 reviews across 500 Dubai restaurants.",
+    date: "February 2026",
+    read: "12 min read",
+  },
+  {
+    slug: "why-google-rating-matters-more-than-instagram",
+    tag: "Strategy",
+    tagColor: "bg-purple-100 text-purple-700",
+    title: "Why Your Google Rating Matters More Than Your Instagram Following",
+    excerpt: "89% of consumers check Google Reviews before visiting.",
+    date: "January 2026",
+    read: "6 min read",
+  },
+  {
+    slug: "jumeirah-cafe-case-study",
+    tag: "Case Study",
+    tagColor: "bg-amber-100 text-amber-700",
+    title: "How a Jumeirah Café Went from 3.8 to 4.6 Stars in 3 Months",
+    excerpt: "Step-by-step breakdown using AI-powered reputation management.",
+    date: "March 2026",
+    read: "5 min read",
+  },
+];
