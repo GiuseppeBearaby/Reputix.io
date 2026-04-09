@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState } from "react";
 import Link from "next/link";
 import { Mail, MapPin, Clock, Instagram, Linkedin, Twitter, Check } from "lucide-react";
@@ -96,7 +96,7 @@ export default function Contact() {
                     type="submit"
                     className="w-full bg-gradient-to-r from-brand-700 to-brand-500 hover:opacity-90 text-white font-bold py-4 rounded-xl text-base transition"
                   >
-                    Send Message →
+                    Send Message â†’
                   </button>
                 </form>
               )}
@@ -105,7 +105,7 @@ export default function Contact() {
             {/* Info */}
             <div className="md:col-span-2 space-y-4">
               <InfoCard Icon={Mail} title="Email" value="hello@reputix.io" href="mailto:hello@reputix.io" />
-              <InfoCard Icon={MapPin} title="Location" value="Dubai, UAE 🇦🇪" />
+              <InfoCard Icon={MapPin} title="Location" value="Dubai, UAE ðŸ‡¦ðŸ‡ª" />
               <InfoCard Icon={Clock} title="Response time" value="Within 24 hours" />
 
               <div className="bg-white rounded-2xl p-6 border border-gray-100">
@@ -132,7 +132,7 @@ export default function Contact() {
           <div className="mt-14 text-center text-sm text-gray-500">
             Looking for answers?{" "}
             <Link href="/pricing" className="text-brand-700 font-semibold hover:underline">
-              Check our FAQ on the pricing page →
+              Check our FAQ on the pricing page â†’
             </Link>
           </div>
         </div>
@@ -169,3 +169,5 @@ function InfoCard({
   );
   return href ? <a href={href}>{content}</a> : content;
 }
+
+
