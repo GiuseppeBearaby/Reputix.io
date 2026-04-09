@@ -199,12 +199,11 @@ export default function Home() {
           <p className="text-center text-gray-600 mt-4 text-lg">
             Start free for 1 month. Cancel anytime.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-14">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-14">
             {[
               { n: "Starter", p: 149, d: "Solo owners", f: ["Auto-reply reviews", "Weekly digest", "1 location"] },
               { n: "Growth", p: 349, d: "Most popular", f: ["Everything in Starter", "Crisis alerts", "Competitor tracking", "3 locations"], highlight: true },
               { n: "Pro", p: 749, d: "Multi-location", f: ["Everything in Growth", "Social monitoring", "Custom tone", "10 locations"] },
-              { n: "Enterprise", p: 1499, d: "Chains & groups", f: ["Everything in Pro", "Dedicated manager", "API access", "Unlimited locations"] },
             ].map((plan) => (
               <div
                 key={plan.n}

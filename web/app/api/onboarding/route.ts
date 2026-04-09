@@ -3,7 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 
 export async function POST(req: NextRequest) {
   try {
-    const { plan, business_name, google_maps_url, instagram, facebook, tiktok, tone } = await req.json();
+    const { plan, business_name, email, google_maps_url, instagram, facebook, tiktok, tone } = await req.json();
     if (!business_name || !plan) {
       return NextResponse.json({ ok: false, error: "business_name and plan are required" }, { status: 400 });
     }
@@ -14,6 +14,7 @@ export async function POST(req: NextRequest) {
       const supabase = createClient(url, key);
       await supabase.from("leads").insert({
         business_name,
+        email: email || null,
         google_maps_url: google_maps_url || null,
         source: "onboarding",
         status: "new",
@@ -29,8 +30,8 @@ export async function POST(req: NextRequest) {
         body: JSON.stringify({
           from: "Reputix <hello@reputix.io>",
           to: process.env.OWNER_EMAIL || "hello@reputix.io",
-          subject: `New trial signup: ${business_name} (${plan})`,
-          html: `<h2>New Trial Signup</h2><p><strong>Business:</strong> ${business_name}</p><p><strong>Plan:</strong> ${plan}</p><p><strong>Tone:</strong> ${tone || "not set"}</p><p><strong>Google Maps:</strong> ${google_maps_url || "not provided"}</p><p><strong>Instagram:</strong> ${instagram || "-"}</p><p><strong>Facebook:</strong> ${facebook || "-"}</p><p><strong>TikTok:</strong> ${tiktok || "-"}</p>`,
+          subject: `New trial signup: ${business_name} (${plan}) — ${email || "no email"}`,
+          html: `<h2>New Trial Signup</h2><p><strong>Business:</strong> ${business_name}</p><p><strong>Email:</strong> ${email || "not provided"}</p><p><strong>Plan:</strong> ${plan}</p><p><strong>Tone:</strong> ${tone || "not set"}</p><p><strong>Google Maps:</strong> ${google_maps_url || "not provided"}</p><p><strong>Instagram:</strong> ${instagram || "-"}</p><p><strong>Facebook:</strong> ${facebook || "-"}</p><p><strong>TikTok:</strong> ${tiktok || "-"}</p>`,
         }),
       });
     }

@@ -10,7 +10,7 @@ const PLANS = [
   {
     id: "starter" as Plan,
     name: "Starter",
-    price: 199,
+    price: 149,
     tagline: "For single-location businesses",
     features: [
       "1 Google location",
@@ -25,7 +25,7 @@ const PLANS = [
   {
     id: "growth" as Plan,
     name: "Growth",
-    price: 499,
+    price: 349,
     tagline: "Full visibility for growing businesses",
     popular: true,
     features: [
@@ -44,7 +44,7 @@ const PLANS = [
   {
     id: "pro" as Plan,
     name: "Pro",
-    price: 999,
+    price: 749,
     tagline: "Full reputation command center",
     features: [
       "Everything in Growth, plus:",
@@ -89,10 +89,33 @@ const TONES = [
 export default function Onboarding() {
   const [step, setStep] = useState(1);
   const [plan, setPlan] = useState<Plan | null>(null);
-  const [biz, setBiz] = useState({ name: "", maps: "", ig: "", fb: "", tt: "" });
+  const [biz, setBiz] = useState({ name: "", email: "", maps: "", ig: "", fb: "", tt: "" });
   const [tone, setTone] = useState<Tone | null>(null);
+  const [submitting, setSubmitting] = useState(false);
 
-  const canStep2 = biz.name.trim() && biz.maps.trim();
+  const canStep2 = biz.name.trim() && biz.email.trim() && biz.maps.trim();
+
+  async function finish() {
+    setSubmitting(true);
+    try {
+      await fetch("/api/onboarding", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          plan,
+          business_name: biz.name,
+          email: biz.email,
+          google_maps_url: biz.maps,
+          instagram: biz.ig,
+          facebook: biz.fb,
+          tiktok: biz.tt,
+          tone,
+        }),
+      });
+    } catch {}
+    setSubmitting(false);
+    setStep(4);
+  }
   const steps = ["Plan", "Connect", "Tone", "Done"];
 
   return (
@@ -207,6 +230,19 @@ export default function Onboarding() {
               </div>
               <div>
                 <label className="text-sm font-semibold text-gray-700 block mb-1.5">
+                  Your Email *
+                </label>
+                <input
+                  type="email"
+                  required
+                  placeholder="you@example.com"
+                  value={biz.email}
+                  onChange={(e) => setBiz({ ...biz, email: e.target.value })}
+                  className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand-500"
+                />
+              </div>
+              <div>
+                <label className="text-sm font-semibold text-gray-700 block mb-1.5">
                   Google Maps Link *
                 </label>
                 <input
@@ -292,8 +328,8 @@ export default function Onboarding() {
             </div>
             <div className="max-w-md mx-auto mt-10">
               <button
-                disabled={!tone}
-                onClick={() => setStep(4)}
+                disabled={!tone || submitting}
+                onClick={finish}
                 className="w-full bg-gradient-to-r from-brand-700 to-brand-500 hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold py-4 rounded-xl text-base transition"
               >
                 Continue â†’

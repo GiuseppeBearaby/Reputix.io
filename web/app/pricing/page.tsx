@@ -8,8 +8,8 @@ import SiteFooter from "../../components/SiteFooter";
 const PLANS = [
   {
     name: "Starter",
-    monthly: 199,
-    annual: 159,
+    monthly: 149,
+    annual: 119,
     tagline: "For single-location businesses",
     features: [
       "1 Google location",
@@ -23,8 +23,8 @@ const PLANS = [
   },
   {
     name: "Growth",
-    monthly: 499,
-    annual: 399,
+    monthly: 349,
+    annual: 279,
     tagline: "Full visibility for growing businesses",
     popular: true,
     features: [
@@ -42,8 +42,8 @@ const PLANS = [
   },
   {
     name: "Pro",
-    monthly: 999,
-    annual: 799,
+    monthly: 749,
+    annual: 599,
     tagline: "Full reputation command center",
     features: [
       "Everything in Growth, plus:",
