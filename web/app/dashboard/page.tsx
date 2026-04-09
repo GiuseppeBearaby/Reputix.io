@@ -139,7 +139,7 @@ function ReviewsSection({ reviews, loading, onRefresh }: { reviews: Review[]; lo
   const [approving, setApproving] = useState<string | null>(null);
   async function approve(r: Review) {
     setApproving(r.id);
-    const { error } = await getSupabase()?.from("reviews").update({ response_status: "posted", final_response: r.ai_draft_response }).eq("id", r.id);
+    const res = await getSupabase()?.from("reviews").update({ response_status: "posted", final_response: r.ai_draft_response }).eq("id", r.id); const error = res?.error;
     setApproving(null);
     if (!error) onRefresh();
   }
@@ -309,10 +309,10 @@ export default function DashboardPage() {
         getSupabase()?.from("reviews").select("*").order("created_at", { ascending: false }),
         getSupabase()?.from("reports").select("*").order("created_at", { ascending: false }),
       ]);
-      if (revRes.error) throw revRes.error;
-      if (repRes.error) throw repRes.error;
-      setReviews(revRes.data ?? []);
-      setReports(repRes.data ?? []);
+      if (revRes?.error) throw revRes.error;
+      if (repRes?.error) throw repRes.error;
+      setReviews(revRes?.data ?? []);
+      setReports(repRes?.data ?? []);
     } catch (e: any) {
       setError(e.message ?? "Unable to load data");
     } finally {
@@ -342,4 +342,6 @@ export default function DashboardPage() {
     </div>
   );
 }
+
+
 
