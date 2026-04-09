@@ -1,6 +1,6 @@
 ﻿"use client";
 import { useState, useEffect, useCallback } from "react";
-import { supabase } from "../../lib/supabase";
+import { getSupabase } from "../../lib/supabase";
 
 type Review = {
   id: string;
@@ -139,7 +139,7 @@ function ReviewsSection({ reviews, loading, onRefresh }: { reviews: Review[]; lo
   const [approving, setApproving] = useState<string | null>(null);
   async function approve(r: Review) {
     setApproving(r.id);
-    const { error } = await supabase.from("reviews").update({ response_status: "posted", final_response: r.ai_draft_response }).eq("id", r.id);
+    const { error } = await getSupabase()?.from("reviews").update({ response_status: "posted", final_response: r.ai_draft_response }).eq("id", r.id);
     setApproving(null);
     if (!error) onRefresh();
   }
@@ -306,8 +306,8 @@ export default function DashboardPage() {
     setError("");
     try {
       const [revRes, repRes] = await Promise.all([
-        supabase.from("reviews").select("*").order("created_at", { ascending: false }),
-        supabase.from("reports").select("*").order("created_at", { ascending: false }),
+        getSupabase()?.from("reviews").select("*").order("created_at", { ascending: false }),
+        getSupabase()?.from("reports").select("*").order("created_at", { ascending: false }),
       ]);
       if (revRes.error) throw revRes.error;
       if (repRes.error) throw repRes.error;
@@ -342,3 +342,4 @@ export default function DashboardPage() {
     </div>
   );
 }
+
