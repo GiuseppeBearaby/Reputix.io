@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 import { useState } from "react";
 import Link from "next/link";
 import { Check, Briefcase, Smile, Zap, Star, Newspaper, Share2 } from "lucide-react";
@@ -74,7 +74,7 @@ const TONES = [
     title: "Friendly & Casual",
     best: "Best for cafes, salons, local shops",
     preview:
-      "Hey thanks so much for the kind words! We're so glad you loved the coffee ☕ Hope to see you again real soon!",
+      "Hey thanks so much for the kind words! We're so glad you loved the coffee â˜• Hope to see you again real soon!",
   },
   {
     id: "direct" as Tone,
@@ -82,7 +82,7 @@ const TONES = [
     title: "Short & Direct",
     best: "Best for fast food, delivery, quick services",
     preview:
-      "Thanks for the feedback! Noted — we'll work on it. See you next time.",
+      "Thanks for the feedback! Noted â€” we'll work on it. See you next time.",
   },
 ];
 
@@ -179,7 +179,7 @@ export default function Onboarding() {
               ))}
             </div>
             <p className="text-center text-sm text-gray-500 mt-8">
-              Or try Pay-As-You-Go at AED 9/response — no commitment
+              Or try Pay-As-You-Go at AED 9/response â€” no commitment
             </p>
           </div>
         )}
@@ -219,7 +219,7 @@ export default function Onboarding() {
               </div>
               <div className="border-t border-gray-100 pt-5">
                 <p className="text-xs font-semibold uppercase tracking-wider text-gray-500 mb-3">
-                  Social Media (optional — helps us monitor more)
+                  Social Media (optional â€” helps us monitor more)
                 </p>
                 <div className="space-y-3">
                   <input
@@ -250,7 +250,7 @@ export default function Onboarding() {
                 onClick={() => setStep(3)}
                 className="w-full mt-2 bg-gradient-to-r from-brand-700 to-brand-500 hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold py-4 rounded-xl text-base transition"
               >
-                Continue →
+                Continue â†’
               </button>
             </div>
           </div>
@@ -296,7 +296,7 @@ export default function Onboarding() {
                 onClick={() => setStep(4)}
                 className="w-full bg-gradient-to-r from-brand-700 to-brand-500 hover:opacity-90 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold py-4 rounded-xl text-base transition"
               >
-                Continue →
+                Continue â†’
               </button>
             </div>
           </div>
@@ -308,7 +308,7 @@ export default function Onboarding() {
               <Check className="w-14 h-14 text-white" strokeWidth={3} />
             </div>
             <h1 className="mt-8 text-3xl sm:text-5xl font-extrabold text-gray-900">
-              You&apos;re all set! 🎉
+              You&apos;re all set! ðŸŽ‰
             </h1>
             <p className="mt-4 text-lg text-gray-600">
               Reputix is now monitoring your online reputation 24/7.
@@ -330,7 +330,7 @@ export default function Onboarding() {
               href="/dashboard"
               className="inline-block mt-10 bg-gradient-to-r from-brand-700 to-brand-500 hover:opacity-90 text-white font-bold py-4 px-10 rounded-xl text-base transition"
             >
-              Go to Dashboard →
+              Go to Dashboard â†’
             </Link>
             <p className="mt-5 text-sm text-gray-500">
               Your first weekly digest arrives Monday morning.
@@ -341,3 +341,4 @@ export default function Onboarding() {
     </main>
   );
 }
+
